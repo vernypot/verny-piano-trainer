@@ -1,0 +1,78 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.scoreWrapper {
+  flex: 1;
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Next-note indicator */
+.nextNote {
+  position: fixed;
+  bottom: 200px;
+  right: 20px;
+  z-index: 100;
+  background: #08101cee;
+  border: 1px solid #3a2a1a;
+  padding: 12px 20px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 30px #c8a96e22;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.nextNoteName {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--accent);
+  text-shadow: var(--glow-gold);
+  line-height: 1;
+}
+
+.nextNoteLbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 7px;
+  letter-spacing: 3px;
+  color: #4a3a28;
+  margin-top: 4px;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  top: 68px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 7px 26px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  z-index: 300;
+  pointer-events: none;
+  clip-path: polygon(7px 0%, 100% 0%, calc(100% - 7px) 100%, 0% 100%);
+  white-space: nowrap;
+  animation: toastIn 0.12s ease;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.toast_hit   { background: var(--green);  color: #001a0a; }
+.toast_miss  { background: var(--red);    color: #fff; }
+.toast_wrong { background: var(--orange); color: #1a0800; }

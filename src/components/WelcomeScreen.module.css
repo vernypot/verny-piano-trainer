@@ -1,0 +1,120 @@
+.wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f4efe6;
+  z-index: 10;
+  transition: opacity 0.3s;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 40px 24px;
+  max-width: 480px;
+  width: 100%;
+}
+
+.clef {
+  font-size: 72px;
+  line-height: 1;
+  color: #5a4a38;
+  text-shadow: 2px 4px 0 #d4c4a888;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: #1a1410;
+  letter-spacing: 3px;
+  line-height: 1;
+}
+
+.sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #8a7a68;
+  text-transform: uppercase;
+}
+
+.dropZone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border: 2px dashed #c0b0a0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  width: 100%;
+  justify-content: center;
+}
+.dropZone:hover {
+  border-color: #8a6a3a;
+  background: #ece7de;
+}
+.dropIcon { font-size: 20px; }
+.dropText {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #6a5a48;
+  letter-spacing: 1px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+  color: #a09080;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #d0c0b0;
+}
+
+.samples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+}
+
+.sampleBtn {
+  padding: 12px 16px;
+  background: #1a1410;
+  border: 1px solid #3a2a1a;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  transition: background 0.15s, border-color 0.15s;
+}
+.sampleBtn:hover {
+  background: #2a1e14;
+  border-color: #c8a96e;
+}
+.sampleLabel {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 13px;
+  color: #d4c4a8;
+}
+.sampleComposer {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  color: #6a5a48;
+  letter-spacing: 1px;
+}

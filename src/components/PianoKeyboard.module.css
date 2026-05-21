@@ -1,0 +1,109 @@
+.wrap {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: var(--surface2);
+  border-top: 2px solid var(--accent);
+  box-shadow: 0 -6px 32px #c8a96e18;
+  padding: 8px 0 0;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.piano {
+  position: relative;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.whiteKey {
+  position: absolute;
+  width: 35px;
+  height: 120px;
+  background: linear-gradient(180deg, #f0ece4 0%, #e8e0d4 100%);
+  border: 1px solid #b0a090;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  z-index: 1;
+  cursor: pointer;
+  transition: background 0.05s, box-shadow 0.05s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 6px;
+}
+
+.whiteKey:hover {
+  background: linear-gradient(180deg, #f8f4ee 0%, #f0e8dc 100%);
+}
+
+.blackKey {
+  position: absolute;
+  width: 22px;
+  height: 74px;
+  background: linear-gradient(180deg, #1a1410 0%, #0d0a08 100%);
+  border: 1px solid #3a2a1a;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  z-index: 2;
+  cursor: pointer;
+  transition: background 0.05s, box-shadow 0.05s;
+}
+
+.blackKey:hover {
+  background: linear-gradient(180deg, #2a201a 0%, #1a1208 100%);
+}
+
+.label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 6px;
+  color: #8a7a6a;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.arrow {
+  position: absolute;
+  top: -18px;
+  font-size: 11px;
+  color: var(--accent);
+  animation: bounce 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); opacity: 0.5; }
+  to   { transform: translateY(-4px); opacity: 1; }
+}
+
+/* ── Key states ── */
+.whiteKey.pressed {
+  background: linear-gradient(180deg, var(--accent2) 0%, #4a8898 100%);
+  box-shadow: 0 0 16px #7eb8c966, inset 0 4px 8px #2a5a6a;
+  border-color: var(--accent2);
+}
+
+.blackKey.pressed {
+  background: linear-gradient(180deg, #7055aa 0%, #4a3080 100%);
+  box-shadow: 0 0 16px #9070cc88;
+}
+
+.whiteKey.expected {
+  background: linear-gradient(180deg, #8a6620 0%, #5a4010 100%);
+  box-shadow: 0 0 20px var(--accent), 0 0 40px #c8a96e44, inset 0 0 10px #c8a96e44;
+  border-color: var(--accent);
+}
+
+.blackKey.expected {
+  background: linear-gradient(180deg, #6a4810 0%, #3a2808 100%);
+  box-shadow: 0 0 20px var(--accent), 0 0 40px #c8a96e44;
+}
+
+/* Combine: pressed + expected = correct hit */
+.whiteKey.pressed.expected,
+.whiteKey.hit-ok {
+  background: linear-gradient(180deg, var(--green) 0%, #2a6040 100%);
+  box-shadow: 0 0 20px var(--green), 0 0 40px #5cb87a44;
+  border-color: var(--green);
+}
